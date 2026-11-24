@@ -43,8 +43,7 @@ public class InMemoryBookRepository implements BookRepository {
     }
 
     @Override
-    public List<Book> search(@Nullable String author, @Nullable String title,
-                                          @Nullable Collection<String> tags, int limit) {
+    public List<Book> search(@Nullable String author, @Nullable String title, @Nullable Collection<String> tags, int limit) {
         if (limit <= 0) {
             return List.of();
         }

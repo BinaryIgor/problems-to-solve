@@ -1,5 +1,6 @@
 package com.example.some_api;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public record Book(long id, String title, String author, List<String> tags) {
@@ -8,9 +9,10 @@ public record Book(long id, String title, String author, List<String> tags) {
         return new Book(0, title, author, List.of());
     }
 
-    public Book tagged(List<String> newTags) {
-        tags.addAll(newTags);
-        return new Book(id, title, author, tags);
+    public Book tagged(List<String> toAddTags) {
+        var newTags = new ArrayList<>(tags);
+        newTags.addAll(toAddTags);
+        return new Book(id, title, author, newTags);
     }
 
     public Book untagged(List<String> toRemoveTags) {

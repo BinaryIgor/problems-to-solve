@@ -35,7 +35,7 @@ class BookController {
     @GetMapping("/books")
     List<Book> search(@RequestParam(required = false) String author,
                       @RequestParam(required = false) String title,
-                      @RequestParam(required = false) List<String> tags) {
+                      @RequestParam(required = false, value = "tag") List<String> tags) {
         return bookRepository.search(author, title, tags, 25);
     }
 
